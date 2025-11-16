@@ -6,11 +6,6 @@
 		margin:0;
 
 	}
-	@media print {
-		body {
-			color: black;
-		}
-	}
 
 	div.heading {
 		font-family: georgia, times new roman, sans-serif;
@@ -48,9 +43,6 @@
 		padding: 0.6rem 1.5rem;
 		color: #ffffff;
 		font-weight: bold;
-	}
-	ul.navbar > li:hover {
-		background-color: #3a4a5f;
 	}
 	ul.navbar > li:hover {
 		background-color: #3a4a5f;
@@ -118,6 +110,17 @@
 		color: blueviolet;
 	}
 }
-
-
+@media print {
+	body {
+		color: black;
+		background-color: white;
+		font-family: serif;
+	}
+	body * {
+		display: none !important;
+	}
+	div.heading, div.heading *, div.content, div.content * {
+		display: block !important;
+	}
+}
 
