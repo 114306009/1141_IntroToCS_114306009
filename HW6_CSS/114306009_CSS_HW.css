@@ -45,12 +45,12 @@ body {
 .left-section {
 	margin-top: 4px;
 	margin-bottom: 10px;
-	font-size: 0.85;
+	font-size: 0.85rem;
 	line-height: 1.5;
 }
 .left-title {
 	margin: 0 0 6px;
-	font-size: 0.95;
+	font-size: 0.95rem;
 }
 .left-section p {
 	margin: 10px 0 20px;
@@ -86,14 +86,14 @@ body {
 	padding-bottom: 10px;
 }
 .edu-item {
-	dispaly: flex;
-	gap: 16px;
+	display: flex;
+	gap: 10px;
 	margin-bottom: 10px;
 	font-size: 1rem;
 }
 .year {
 	width: 110px;
-	fiont-weight: 600;
+	font-weight: 600;
 }
 .description {
 	flex: 1;
@@ -104,7 +104,7 @@ body {
 	gap: 10px;
 }
 .tag {
-	diplay: inline-blosk;
+	diplay: inline-block;
 	padding: 4px 10px;
 	border-radius: 999px;
 	background-color: #E5EBFF;
