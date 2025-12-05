@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>114306009_JS1_HW7</title>
+</head>
+<body>
+	<h1>114306009_HW6_1A2B</h1>
+	<p>
+		Enter 4 unique numbers
+		<input type="text" id="guessInput" maxlength="4">
+		<button type="button" onclick="play()">Guess</button>
+	</p>
+
+	<div id="history"></div>
+
+	<script>
+		const answer = generateAnswer();
+		let attempts = 0;
+
+		function generateAnswer(){
+			const digits = ["0", "1", "2", "3", "4", "5","6", "7" ,"8", "9"] ;
+			let result = "";
+			for(let i=0; i<4; i++){
+				const index = Math.floor(Math.random() * digits.length);
+				result += digits[index];
+				//array.splice(起始位置, 要刪掉幾個元素)
+				digits.splice(index, 1);
+			}
+			return result;
+		}
+
+		function isValid(str){
+			if(str.length !== 4){
+				alert("Input must be exactly 4 digits!");
+				return false;
+			}
+			if(isNaN(str)){
+				alert("Input should only contain digit (0-9)");
+				return false;
+			}
+			const chars = str.split("");
+			const unique = new Set(chars);
+			if(unique.size !== 4){
+				alert("Digits should not be repeated");
+				return false;
+			}
+			return true;
+		}
+
+		function checkAB(guess, ans){
+			let A = 0;
+			let B = 0;
+
+			for(let i=0; i<4; i++){
+				if(guess[i] === ans[i]){
+					A ++;
+				}
+				else if(ans.includes(guess[i])){
+					B++;
+				}
+			}
+
+			return A + "A" + B + "B";
+		}
+		
+		function play(){
+            const inputField = document.getElementById("guessInput");
+            let guess = inputField.value.trim();
+
+            if(!isValid(guess)){
+            	return;
+            }
+
+            attempts ++;
+            const results = checkAB(guess, answer);
+
+            const historyDiv = document.getElementById("history");
+            historyDiv.innerHTML +=
+                "<p>Attempt " + attempts + ": " + guess +
+                " → " + results + "</p>";
+
+            if(results === "4A0B"){
+            	alert("Correct! You used " + attempts + " attempts in total");
+            	inputField.disabled = true;
+            	return;
+            }
+
+            inputField.value = "";
+            inputField.focus();
+
+		}
+
+	</script>
+</body>
+</html>

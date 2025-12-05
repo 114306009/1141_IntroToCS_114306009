@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>114306009_JS1_Lab3</title>
+</head>
+<body>
+	<h1>114306009_Number Guessing Game</h1>
+	<div id="result"></div>
+	<script>
+		var answer = Math.floor(Math.random() * 100) + 1;
+		var high = 100;
+		var low = 1;
+
+		var chances = 7;
+		while(chances > 0){
+			var input = prompt("Please guess a integer number between " + low + " and " + high + ", you still have " + chances + " chances left");
+
+			if(input === null){
+				alert("Game cancelled");
+				break;
+			}
+			input = input.trim();
+
+			if(input === "" || isNaN(input)){
+				alert("This input are not valid! Please enter a integer number");
+				continue;
+			}
+
+			var guess = Number(input);
+
+			if(guess < low || guess > high){
+				alert("The number must between" + low + " and " + high);
+				continue;
+			}
+
+			if(guess === answer){
+				document.getElementById("result").innerHTML = 
+    '<img src="images/correct.jpg">';
+				alert("You are correct, congragulations!");
+				break;
+			}
+			else{
+				chances -=1;
+				if(guess > answer){
+					high = guess - 1;
+				}
+				else{
+					low = guess + 1;
+				}
+			}
+		}
+
+		
+		if(chances === 0){
+			alert("The answer is " + answer + ". You are so close!");
+			document.getElementById("result").innerHTML = 
+    '<img src="images/wrong.jpg">';
+		}
+
+	</script>
+</body>
+</html>
