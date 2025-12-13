@@ -3,38 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>114306009_JS2_HW8 - Calculator</title>
+  <title>JS Calculator</title>
   <link rel="stylesheet" href="114306009_JS2_HW8.css" />
 </head>
 <body>
-  <h1>JS2 Calculator</h1>
+  <div class="container">
+    <div class="calculator-card">
+      <h1>JS Calculator</h1>
 
-  <div class="calculator">
-    <label>
-      Number 1:
-      <input id="num1" type="number" step="any" />
-    </label>
+      <div class="form-group">
+        <label for="num1">Number 1</label>
+        <input id="num1" type="number" step="any" placeholder="123" />
+      </div>
 
-    <label>
-      Operator:
-      <select id="op">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="/">/</option>
-      </select>
-    </label>
+      <div class="form-group">
+        <label for="num2">Number 2</label>
+        <input id="num2" type="number" step="any" placeholder="456" />
+      </div>
 
-    <label>
-      Number 2:
-      <input id="num2" type="number" step="any" />
-    </label>
+      <div class="form-group">
+        <label for="op">Operate way?</label>
+        <select id="op">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+        </select>
+      </div>
 
-    <button id="calcBtn" type="button">Calculate</button>
+      <button id="calcBtn" type="button">Add</button>
 
-    <p id="error" class="error"></p>
-    <div class="result">
-      Result: <span id="resultText">-</span>
+      <div class="result-display">
+        Result = <span id="resultText"></span>
+      </div>
+      <p id="error" class="error"></p>
     </div>
   </div>
 

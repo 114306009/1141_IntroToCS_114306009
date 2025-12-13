@@ -6,7 +6,19 @@ const calcBtn = document.getElementById("calcBtn");
 const errorEl = document.getElementById("error");
 const resultTextEl = document.getElementById("resultText");
 
+// Update button text when operator changes
+opEl.addEventListener("change", updateButtonText);
 calcBtn.addEventListener("click", calculate);
+
+function updateButtonText() {
+  const op = opEl.value;
+  let text = "Calculate";
+  if (op === "+") text = "Add";
+  else if (op === "-") text = "Subtract";
+  else if (op === "*") text = "Multiply";
+  else if (op === "/") text = "Divide";
+  calcBtn.textContent = text;
+}
 
 function add(a, b) {
   return a + b;
@@ -30,7 +42,8 @@ function divide(a, b) {
 
 function calculate() {
   errorEl.textContent = "";
-  resultTextEl.textContent = "-";
+  // Reset result display if there is an error
+  resultTextEl.textContent = "";
 
   const aStr = num1El.value.trim();
   const bStr = num2El.value.trim();
@@ -70,3 +83,6 @@ function calculate() {
   // Rounded to 2 decimal places
   resultTextEl.textContent = result.toFixed(2);
 }
+
+// Initialize button text
+updateButtonText();
