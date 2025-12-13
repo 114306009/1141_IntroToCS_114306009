@@ -12,22 +12,25 @@ const overallAvgCell = document.getElementById("overallAvg");
 
 let rowCount = 0;
 
-submitBtn.addEventListener("click", function () {
+function submitGrade() {
   msg.textContent = "";
 
   // Read inputs
-  const mathVal = Number(mathInput.value);
-  const engVal = Number(englishInput.value);
+  const mathVal = parseFloat(mathInput.value);
+  const engVal = parseFloat(englishInput.value);
 
-  // Validate inputs (only accept num)
+  // Validate inputs
+  // Check for empty string explicitly because parseFloat("") is NaN
   if (mathInput.value.trim() === "" || englishInput.value.trim() === "") {
     msg.textContent = "Please enter both Math and English grades.";
     return;
   }
-  if (!Number.isFinite(mathVal) || !Number.isFinite(engVal)) {
+  
+  if (isNaN(mathVal) || isNaN(engVal)) {
     msg.textContent = "Invalid input. Please enter numbers only.";
     return;
   }
+
   if (mathVal < 0 || mathVal > 100 || engVal < 0 || engVal > 100) {
     msg.textContent = "Grades should be between 0 and 100.";
     return;
@@ -46,7 +49,7 @@ submitBtn.addEventListener("click", function () {
 
   // Math column
   const tdMath = document.createElement("td");
-  tdMath.textContent = mathVal.toFixed(0);
+  tdMath.textContent = mathVal.toFixed(0); // Display as integer per example
   tdMath.className = "mathScore";
   tr.appendChild(tdMath);
 
@@ -71,6 +74,17 @@ submitBtn.addEventListener("click", function () {
   mathInput.value = "";
   englishInput.value = "";
   mathInput.focus();
+}
+
+submitBtn.addEventListener("click", submitGrade);
+
+// Allow pressing "Enter" to submit
+mathInput.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") englishInput.focus();
+});
+
+englishInput.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") submitGrade();
 });
 
 function updateColumnAverages() {
@@ -92,7 +106,6 @@ function updateColumnAverages() {
   const engAvg = n === 0 ? 0 : engSum / n;
 
   // Overall average score in footer row
-  // (Since each row has 2 subjects, overall average can be average of the two column averages)
   const overallAvg = (mathAvg + engAvg) / 2;
 
   // Display

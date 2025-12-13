@@ -7,46 +7,48 @@
   <link rel="stylesheet" href="114306009_JS2_Lab4.css" />
 </head>
 <body>
-  <h1>Grade Statistics</h1>
+  <div class="container">
+    <h1>Grade Statistics</h1>
 
-  <div class="controls">
-    <label>
-      Math:
-      <input id="mathInput" type="number" min="0" max="100" step="1" />
-    </label>
+    <div class="controls">
+      <div class="input-group">
+        <label for="mathInput">Math</label>
+        <input id="mathInput" type="number" min="0" max="100" placeholder="0-100" />
+      </div>
 
-    <label>
-      English:
-      <input id="englishInput" type="number" min="0" max="100" step="1" />
-    </label>
+      <div class="input-group">
+        <label for="englishInput">English</label>
+        <input id="englishInput" type="number" min="0" max="100" placeholder="0-100" />
+      </div>
 
-    <button id="submitBtn" type="button">Submit</button>
+      <button id="submitBtn" type="button">Submit</button>
+    </div>
     <p id="msg" class="msg"></p>
+
+    <table id="gradeTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Math</th>
+          <th>English</th>
+          <th>Average</th>
+        </tr>
+      </thead>
+
+      <tbody id="gradeBody">
+        <!-- New rows will be appended here -->
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th>Average</th>
+          <th id="mathAvg">-</th>
+          <th id="englishAvg">-</th>
+          <th id="overallAvg">-</th>
+        </tr>
+      </tfoot>
+    </table>
   </div>
-
-  <table id="gradeTable">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Math</th>
-        <th>English</th>
-        <th>Row Average</th>
-      </tr>
-    </thead>
-
-    <tbody id="gradeBody">
-      <!-- New rows will be appended here -->
-    </tbody>
-
-    <tfoot>
-      <tr>
-        <th>Avg</th>
-        <th id="mathAvg">-</th>
-        <th id="englishAvg">-</th>
-        <th id="overallAvg">-</th>
-      </tr>
-    </tfoot>
-  </table>
 
   <script src="114306009_JS2_Lab4.js"></script>
 </body>
