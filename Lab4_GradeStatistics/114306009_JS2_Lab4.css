@@ -1,0 +1,61 @@
+/* Basic layout */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 24px;
+}
+
+h1 {
+  margin-bottom: 12px;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.controls label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.controls input {
+  width: 120px;
+  padding: 6px 8px;
+}
+
+.controls button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.msg {
+  width: 100%;
+  margin: 4px 0 0 0;
+  color: #b00020;
+}
+
+/* Table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 720px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+thead th {
+  background: #f3f3f3;
+}
+
+tfoot th, tfoot td {
+  background: #fafafa;
+  font-weight: bold;
+}

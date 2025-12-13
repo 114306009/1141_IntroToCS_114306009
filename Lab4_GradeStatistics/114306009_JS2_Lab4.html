@@ -1,20 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>114306009_JS2_Lab4 - Grade Statistics</title>
+  <link rel="stylesheet" href="114306009_JS2_Lab4.css" />
+</head>
 <body>
-<h1>The Element Object</h1>
-<h2>The setAttribute() Method</h2>
+  <h1>Grade Statistics</h1>
 
-<a id="myAnchor">Go to w3schools.com</a>
+  <div class="controls">
+    <label>
+      Math:
+      <input id="mathInput" type="number" min="0" max="100" step="1" />
+    </label>
 
-<p>Click "add" to add an href attribute to the element above.</p>
+    <label>
+      English:
+      <input id="englishInput" type="number" min="0" max="100" step="1" />
+    </label>
 
-<button onclick="myFunction()">Try it</button>
+    <button id="submitBtn" type="button">Submit</button>
+    <p id="msg" class="msg"></p>
+  </div>
 
-<script>
-function myFunction() {
-  document.getElementById("myAnchor").setAttribute("href", "https://www.w3schools.com"); 
-}
-</script>
+  <table id="gradeTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Math</th>
+        <th>English</th>
+        <th>Row Average</th>
+      </tr>
+    </thead>
 
+    <tbody id="gradeBody">
+      <!-- New rows will be appended here -->
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th>Avg</th>
+        <th id="mathAvg">-</th>
+        <th id="englishAvg">-</th>
+        <th id="overallAvg">-</th>
+      </tr>
+    </tfoot>
+  </table>
+
+  <script src="114306009_JS2_Lab4.js"></script>
 </body>
 </html>
