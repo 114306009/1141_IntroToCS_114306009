@@ -1,20 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>114306009_JS2_HW8 - Calculator</title>
+  <link rel="stylesheet" href="114306009_JS2_HW8.css" />
+</head>
 <body>
-<h1>The Element Object</h1>
-<h2>The setAttribute() Method</h2>
+  <h1>JS2 Calculator</h1>
 
-<a id="myAnchor">Go to w3schools.com</a>
+  <div class="calculator">
+    <label>
+      Number 1:
+      <input id="num1" type="number" step="any" />
+    </label>
 
-<p>Click "add" to add an href attribute to the element above.</p>
+    <label>
+      Operator:
+      <select id="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+    </label>
 
-<button onclick="myFunction()">Try it</button>
+    <label>
+      Number 2:
+      <input id="num2" type="number" step="any" />
+    </label>
 
-<script>
-function myFunction() {
-  document.getElementById("myAnchor").setAttribute("href", "https://www.w3schools.com"); 
-}
-</script>
+    <button id="calcBtn" type="button">Calculate</button>
 
+    <p id="error" class="error"></p>
+    <div class="result">
+      Result: <span id="resultText">-</span>
+    </div>
+  </div>
+
+  <script src="114306009_JS2_HW8.js"></script>
 </body>
 </html>

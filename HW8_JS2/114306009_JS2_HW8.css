@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 24px;
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  max-width: 420px;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+input, select {
+  width: 200px;
+  padding: 6px 8px;
+}
+
+button {
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.error {
+  color: #b00020;
+  margin: 0;
+}
+
+.result {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
